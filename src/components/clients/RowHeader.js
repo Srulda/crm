@@ -5,7 +5,8 @@ class RowHeader extends Component {
         return (
                  <div id = "rowHeader" >
               <span>Name</span>
-              <span>country</span>
+              <span>Surname</span>
+              <span>Country</span>
               <span>First Contact</span>
               <span>Email </span>
               <span>Sold</span>

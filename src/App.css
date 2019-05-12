@@ -1,18 +1,40 @@
+body {
+    background-color: #ecf0f1;
+    font-size: 18px;
+}
+
 #row {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1.3fr 0.5fr 0.5fr 1.3fr;
     border-top: 1px solid black;
+    text-align: center;
 }
 
 #search-nav {
     margin: 1%;
 }
 
+#navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 7fr;
+    background-color: black;
+    height: 5vh;
+    text-align: center;
+    align-items: center;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+}
+
 #rowHeader {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1.3fr 0.5fr 0.5fr 1.3fr;
     border-bottom: 1px solid black;
-    background-color: rgb(193, 235, 6);
+    background-color: #F7CE3E;
+    text-align: center;
+
 }
 
 .popup {

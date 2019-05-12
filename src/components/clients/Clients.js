@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import RowClient from "./RowClient";
-import data from "./data";
 import RowHeader from "./RowHeader";
+import axios from 'axios'
 
 class Client extends Component {
   constructor() {
@@ -9,22 +9,27 @@ class Client extends Component {
     this.state = {
       data: [],
       searchInput: "",
-      selectInput: ""
+      selectInput: "name"
     };
   }
 
   componentDidMount = () => {
-    this.setState({
-      data: data
-    });
-  };
+    this.getDataFromDB()
+  }
 
-  handleInput = e => {
+  getDataFromDB = async () => {
+    let clientsData = await axios.get('http://localhost:5515/clients')
+    this.setState({
+      data : clientsData.data
+    })
+}
+ 
+handleInput = e => {
     let inputValue = e.target.value;
     this.setState({
       [e.target.id]: inputValue
-    });
-  };
+    })
+  }
 
   displayFiltered = () => {
     const searchData = [...this.state.data];
@@ -33,9 +38,9 @@ class Client extends Component {
         .toUpperCase()
         .toLowerCase()
         .includes(this.state.searchInput)
-    );
+    )
     return options.map(c => <RowClient client={c} key={c.id} />);
-  };
+  }
 
   displayAll = () => {
     return this.state.data.map(c => <RowClient client={c} key={c.id} />);
@@ -48,18 +53,17 @@ class Client extends Component {
   render() {
     return (
       <div>
-        <div id="search-nav">
-          <input
+       <div id="search-nav">
+         <input
             placeholder="Search"
             id="searchInput"
             value={this.state.searchInput}
             onChange={this.handleInput}
           />
           <select id="selectInput" onChange={this.handleInput}>
-            <option value="name">name</option>
-            <option value="country">country</option>
-            <option value="email">email</option>
-            <option value="owner">owner</option>
+            <option value="name">Name</option>
+            <option value="country">Country</option>
+            <option value="owner">Owner</option>
           </select>
         </div>
         <RowHeader />
