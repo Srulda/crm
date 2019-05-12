@@ -1,0 +1,17 @@
+#navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 9fr;
+    background-color: black;
+    height: 8vh;
+    text-align: center;
+    align-items: center;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+#search-nav {
+    margin: 1%;
+}

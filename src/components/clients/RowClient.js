@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Popup from "./Popup";
+import '../style/rowClient.css'
 
 class RowClient extends Component {
   constructor() {
@@ -33,7 +34,7 @@ class RowClient extends Component {
       owner = this.props.client.owner;
 
     return (
-      <div id="row" onClick={this.togglePopup.bind(this)}>
+      <div className="row" onClick={this.togglePopup.bind(this)}>
         <span>{first}</span>
         <span>{last}</span>
         <span>{country}</span>

@@ -39,11 +39,11 @@ handleInput = e => {
         .toLowerCase()
         .includes(this.state.searchInput)
     )
-    return options.map(c => <RowClient client={c} key={c.id} />);
+    return options.map(c => <RowClient key={c._id} client={c}  />);
   }
 
   displayAll = () => {
-    return this.state.data.map(c => <RowClient client={c} key={c.id} />);
+    return this.state.data.map(c => <RowClient key={c._id} client={c}  />);
   };
 
   displayClients = () => {

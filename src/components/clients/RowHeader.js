@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style/rowHeader.css'
 
 class RowHeader extends Component {
     render() {
@@ -8,7 +9,7 @@ class RowHeader extends Component {
               <span>Surname</span>
               <span>Country</span>
               <span>First Contact</span>
-              <span>Email </span>
+              <span>Email Type</span>
               <span>Sold</span>
               <span>Owner</span>
             </div>

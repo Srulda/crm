@@ -1,0 +1,9 @@
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.3fr 0.5fr 0.7fr 1.3fr;
+    border-top: 1.75px solid rgba(209, 207, 207, 0.75);
+    align-items: center;
+    height: 2.5em;
+    margin-left: 1%;
+    margin-right: 1%;    
+}
