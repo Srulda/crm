@@ -62,14 +62,14 @@
 }
 
 .popInput{
-    text-align: left;
-    margin-left: 5%;
+    /* text-align: left; */
     margin: 10%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0,);
     border: none;
     border-bottom: 1px solid white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 16px;
+    
 }
 

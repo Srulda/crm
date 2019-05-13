@@ -27,8 +27,8 @@ class Popup extends Component {
       <div className="popup">
         <div className="popup_inner">
           <div>
-            <button id="closePopup" onClick={this.props.closePopup}>
-              <i class="fas fa-times" />
+           <button id = "closePopup" onClick={this.props.closePopup}>
+              <i className="fas fa-times" />
             </button>
           </div>
           <div id="input-container">
@@ -57,3 +57,4 @@ class Popup extends Component {
 }
 
 export default Popup;
+

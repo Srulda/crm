@@ -17,7 +17,7 @@ class RowClient extends Component {
     return `${month} ${day}, ${year}`;
   };
 
-  togglePopup() {
+  togglePopup = () => {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -34,7 +34,10 @@ class RowClient extends Component {
       owner = this.props.client.owner;
 
     return (
-      <div className="row" onClick={this.togglePopup.bind(this)}>
+      <div>
+      {this.state.showPopup ? 
+        <Popup closePopup={this.togglePopup.bind(this)} first = {first}  /> : null}
+      <div className="row" onClick={this.togglePopup.bind(this)} >
         <span>{first}</span>
         <span>{last}</span>
         <span>{country}</span>
@@ -42,11 +45,8 @@ class RowClient extends Component {
         <span>{email}</span>
         <span>{sold}</span>
         <span>{owner}</span>
-
-        {this.state.showPopup ? (
-          <Popup closePopup={this.togglePopup.bind(this)} />
-        ) : null}
-      </div>
+       </div>
+       </div>
     );
   }
 }

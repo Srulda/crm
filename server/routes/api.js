@@ -2,11 +2,12 @@ const express = require('express')
 const router = express.Router()
 const Client = require('../model/Client')
 
-router.get('/clients', function (req, res) {
-    Client.find({}).exec((err, clientsData) => {
-        res.send(clientsData)
+getData = async () => Client.find({}) 
+
+router.get('/clients', async function (req, res) {
+    let clients = await getData()
+    res.send(clients)
     })
-})
 
 router.post('/client', function (req, res) {
     const c = req.body
@@ -25,5 +26,11 @@ router.post('/client', function (req, res) {
     })
 })
 
+router.get('/clients/actions', async function (req, res) {
+    let clients = await getData()
+    let mapClients = clients
+    .map(c => {return {_id: c._id, name: c.name, owner: c.owner}})
+    res.send(mapClients)
+    })
 
 module.exports = router

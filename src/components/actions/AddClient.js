@@ -14,7 +14,6 @@ class AddClient extends Component {
 
   addClient = async () => {
     let newClient = {
-      _id: null,
       name: `${this.state.name} ${this.state.surname}`,
       email: "",
       firstContact: Date.now(),
@@ -35,6 +34,7 @@ class AddClient extends Component {
   render() {
     return (
       <div>
+        <h2>Add Client</h2>
         <div id="addClient">
           <div>Name:</div>
 

@@ -24,12 +24,7 @@ class Client extends Component {
     })
 }
  
-handleInput = e => {
-    let inputValue = e.target.value;
-    this.setState({
-      [e.target.id]: inputValue
-    })
-  }
+handleInput = e => {this.setState({[e.target.id]: e.target.value})}
 
   displayFiltered = () => {
     const searchData = [...this.state.data];
