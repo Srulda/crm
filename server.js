@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const api = require('./server/routes/api')
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://localhost/crm", { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost/crm", { useNewUrlParser: true, useFindAndModify: false })
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))

@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../style/actions.css";
 
 class Update extends Component {
   constructor() {
-    super();
+    super()
+
     this.state = {
       data: [],
       clientName: "",
       transfer: "",
-      sendEmail: ""
-    };
+      sendEmail: "",
+      updatedOwner : false,
+      updatedEmail : false,
+      updatedDeclaration : false,
+      owner : "Janice Alvarado"
+    }
   }
-  componentDidMount = () => {
-    this.getDataFromDB();
-  };
 
   getDataFromDB = async () => {
     let clientsData = await axios.get("http://localhost:5515/clients/actions");
@@ -21,6 +24,31 @@ class Update extends Component {
       data: clientsData.data
     });
   };
+
+  componentDidMount = () => {
+    this.getDataFromDB();
+  }
+
+  findCorrectID = () => {
+     let client =  this.state.data.find(c => c.name === this.state.clientName)
+      return client._id
+    }
+
+  updateOwner = async () => {
+    await axios.put(`http://localhost:5515/owner/${this.findCorrectID()}/${this.state.transfer}`)
+    this.setState({ updatedOwner: true })
+}
+
+  updateEmail = async () => {
+    await axios.put(`http://localhost:5515/email/${this.findCorrectID()}/${this.state.sendEmail}`)
+    this.setState({ updatedEmail: true })
+}
+
+  declareSale = async () => {
+    await axios.put(`http://localhost:5515/declare/${this.findCorrectID()}`)
+    this.setState({ updatedDeclaration: true })
+}
+
 
   getOwners = () => {
     let owners = new Set();
@@ -40,10 +68,11 @@ class Update extends Component {
         <div>
           Client
           <input
+            id = "clientName"
             list="client"
             type="text"
-            id="lientlientName"
-            value={this.state.name}
+            className="selectInput"
+            value={this.state.clientName}
             onChange={this.handleInput}
           />
           <datalist id="client">
@@ -55,9 +84,10 @@ class Update extends Component {
         <div>
           Transfer ownership to
           <input
+            id = "transfer"
             list="owner"
             type="text"
-            id="lientlientName"
+            className="selectInput"
             value={this.state.transfer}
             onChange={this.handleInput}
           />
@@ -66,21 +96,21 @@ class Update extends Component {
               <option value={o} key={i} />
             ))}
           </datalist>
-          <button>Transfer</button>
+          <button onClick = {this.updateOwner}>Transfer</button>
         </div>
         <div>
           Send Email
-          <select id="sendEmail">
+          <select id = "sendEmail" onChange={this.handleInput} className="selectInput">
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="C">C</option>
             <option value="D">D</option>
           </select>
-          <button>Send</button>
+          <button onClick={this.updateEmail}>Send</button>
         </div>
         <div>
           Declare sale!
-          <button>Declare</button>
+          <button onClick = {this.declareSale} >Declare</button>
         </div>
       </div>
     );

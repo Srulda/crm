@@ -1,0 +1,35 @@
+.selectInput {
+    width: 10vw;
+    border: none;
+    border-bottom: 2px solid rgba(209, 207, 207, 0.75);
+    outline: none;
+    color: black;
+    background-color: #ecf0f1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.addClientInput {
+    width: 15vw;
+    margin-right: 3vw;
+    border: none;
+    border-bottom: 2px solid rgba(209, 207, 207, 0.75);
+    outline: none;
+    color: black;
+    background-color: #ecf0f1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#addClientButton {
+    background-color: #F7CE3E;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    width: 15%;
+    height: 30px;
+    border: none; 
+    border-radius: 2px 2px 2px 2px;
+}

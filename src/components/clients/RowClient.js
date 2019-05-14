@@ -23,6 +23,11 @@ class RowClient extends Component {
     });
   }
 
+  editClient = () => {
+
+  }
+
+
   render() {
     const fullName = this.props.client.name.split(" "),
       first = fullName[0],
@@ -36,7 +41,7 @@ class RowClient extends Component {
     return (
       <div>
       {this.state.showPopup ? 
-        <Popup closePopup={this.togglePopup.bind(this)} first = {first}  /> : null}
+        <Popup closePopup={this.togglePopup.bind(this)} name = {first} surName = {last} country = {country} /> : null}
       <div className="row" onClick={this.togglePopup.bind(this)} >
         <span>{first}</span>
         <span>{last}</span>

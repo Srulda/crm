@@ -22,8 +22,8 @@ class AddClient extends Component {
       owner: this.state.owner,
       country: this.state.country
       }
-    await axios.post("http://localhost:5515/client", newClient);
-  };
+    await axios.post("http://localhost:5515/client", newClient)
+  }
 
   handleInput = e => {
     let inputValue = e.target.value;
@@ -39,6 +39,7 @@ class AddClient extends Component {
           <div>Name:</div>
 
           <input
+          className = "addClientInput"
             type="text"
             id="name"
             value={this.state.name}
@@ -46,6 +47,7 @@ class AddClient extends Component {
           />
           <div>Surname:</div>
           <input
+            className = "addClientInput"
             type="text"
             id="surname"
             value={this.state.surname}
@@ -54,6 +56,7 @@ class AddClient extends Component {
 
           <div>Country:</div>
           <input
+            className = "addClientInput"
             type="text"
             id="country"
             value={this.state.country}
@@ -62,13 +65,14 @@ class AddClient extends Component {
 
           <div>Owner:</div>
           <input
+            className = "addClientInput"
             type="text"
             id="owner"
             value={this.state.owner}
             onChange={this.handleInput}
           />
         </div>
-        <button onClick={this.addClient}>Add New Client</button>
+        <button id ="addClientButton" onClick={this.addClient}>Add New Client</button>
       </div>
     );
   }
