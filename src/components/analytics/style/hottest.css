@@ -1,0 +1,43 @@
+#hot-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 10%;
+    margin-left: 10%;
+    box-shadow: 1em;
+}
+
+#hotBadge{
+    background-color: rgb(241, 196, 15);
+    width: 7vw;
+    height: 13vh;
+    border-radius: 50%;
+    display: grid;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.fa-globe-americas{
+    color: white;
+    align-content: center;
+    font-size: 3.75em;
+    align-self: center;
+    justify-self: center;
+}
+
+#hot-text-container {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    }
+    
+#hotNum{
+    font-size: 2.5em;
+    font-weight: 500;
+    align-self: center;
+    margin-left: 0.8em;
+    justify-self: start;
+    }
+
+#hotText{
+      font-weight: 600;
+      font-size: 1em;
+      margin-left: 2.2em;
+}

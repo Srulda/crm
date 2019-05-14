@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../style/actions.css";
+import { set } from "mongoose";
 
 class Update extends Component {
   constructor() {
     super()
-
     this.state = {
       data: [],
       clientName: "",
@@ -49,7 +49,6 @@ class Update extends Component {
     this.setState({ updatedDeclaration: true })
 }
 
-
   getOwners = () => {
     let owners = new Set();
     this.state.data.map(o => owners.add(o.owner))
@@ -65,7 +64,7 @@ class Update extends Component {
     return (
       <div>
         <h2>Update</h2>
-        <div>
+        <div id = "update-container">
           Client
           <input
             id = "clientName"

@@ -1,0 +1,10 @@
+#analytics-container{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+#badges-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
