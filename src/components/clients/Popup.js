@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../style/popup.css";
-import { async } from "q";
+import axios from "axios";
 
 class Popup extends Component {
   constructor() {
@@ -11,14 +11,16 @@ class Popup extends Component {
       country: ""
     };
   }
- 
 
+  editClient = async () => {
+    let c = this.props.client;
+    c.name = `${this.state.name} ${this.state.surName}`;
+    c.country = this.state.country;
+    await axios.put(`http://localhost:5515/client/${c._id}`, c);
+    this.props.closePopup();
+  };
   handleInput = e => {
     this.setState({ [e.target.id]: e.target.value });
-  };
-
-  log = () => {
-    console.log("hi");
   };
 
   render() {
@@ -63,7 +65,7 @@ class Popup extends Component {
             </div>
           </div>
           <div>
-            <button id="updatePopup" onClick={this.log}>
+            <button id="updatePopup" onClick={this.editClient}>
               Update
             </button>
           </div>

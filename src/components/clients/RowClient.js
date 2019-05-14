@@ -41,7 +41,7 @@ class RowClient extends Component {
     return (
       <div>
       {this.state.showPopup ? 
-        <Popup closePopup={this.togglePopup.bind(this)} name = {first} surName = {last} country = {country} /> : null}
+        <Popup closePopup={this.togglePopup.bind(this)} name = {first} surName = {last} country = {country} client ={this.props.client}/> : null}
       <div className="row" onClick={this.togglePopup.bind(this)} >
         <span>{first}</span>
         <span>{last}</span>
