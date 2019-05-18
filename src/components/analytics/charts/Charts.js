@@ -5,7 +5,7 @@ class Charts extends Component {
     render() {
         return (
             <div>
-                <TopEmpChart />
+                <TopEmpChart data = {this.props.data}/>
             </div>
         );
     }

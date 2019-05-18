@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Badges from './badges/Badges';
 import Charts from './charts/Charts';
 import axios from 'axios'
-import "../style/analytics.css"
+import "../analytics/style/analytics.css"
 
 class Analytics extends Component {
     constructor(){
@@ -28,7 +28,7 @@ class Analytics extends Component {
             <div>
             <div id = "analytics-container">
             <div><Badges data = {this.state.data}/></div>  
-               <div><Charts /></div>
+               <div><Charts data = {this.state.data}/></div>
               </div>
               </div>
         );

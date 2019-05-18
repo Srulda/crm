@@ -20,7 +20,7 @@ class NewClientBadge extends Component {
   };
 
   render() {
-    return <div id = "newClient-container">
+    return <div id = "newClient-container" >
         <div id = "newClientBadge"><i className="fas fa-chart-line"></i></div>
         <div id = "newClientText">
             <span id = "leftBNum">{this.totalNewClients()}</span>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../style/actions.css";
 
 class AddClient extends Component {
   constructor() {
@@ -33,44 +34,44 @@ class AddClient extends Component {
   };
   render() {
     return (
-      <div>
-        <h2>Add Client</h2>
+      <div id = "Add-client">
+        <h3>Add Client</h3>
         <div id="addClient">
-          <div>Name:</div>
-
+          <div className = "addwrapper" >
+          First Name: 
           <input
           className = "addClientInput"
             type="text"
             id="name"
             value={this.state.name}
             onChange={this.handleInput}
-          />
-          <div>Surname:</div>
+          /> </div>
+          <div className = "addwrapper">Surname:
           <input
             className = "addClientInput"
             type="text"
             id="surname"
             value={this.state.surname}
             onChange={this.handleInput}
-          />
+          /></div>
 
-          <div>Country:</div>
+          <div className = "addwrapper">Country:
           <input
             className = "addClientInput"
             type="text"
             id="country"
             value={this.state.country}
             onChange={this.handleInput}
-          />
+          /></div>
 
-          <div>Owner:</div>
+          <div className = "addwrapper">Owner:
           <input
             className = "addClientInput"
             type="text"
             id="owner"
             value={this.state.owner}
             onChange={this.handleInput}
-          />
+          /></div>
         </div>
         <button id ="addClientButton" onClick={this.addClient}>Add New Client</button>
       </div>
