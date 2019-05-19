@@ -3,11 +3,19 @@ import {ComposedChart, Bar, XAxis, YAxis, Tooltip, Legend }
 from "recharts";
 import "../style/analytics.css"
 class TopEmpChart extends Component {
- 
+constructor(){
+  super()
+  this.state = {
+        employeesToRender : 3
+  }
+}
+handleInput = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+
 generateDataForChart = data => {
   let employees = {}
   let employeesBySales = []
-  let employeesToRender = 3
   data.forEach(c => {
     if(c.sold){
       employees[c.owner]
@@ -21,9 +29,11 @@ Object.keys(employees)
 })
 let dataForChart = employeesBySales
 .sort((a, b) =>  a.sales - b.sales)
-.splice(employeesBySales.length - employeesToRender)
+.splice(employeesBySales.length - this.state.employeesToRender)
 return dataForChart
 }
+
+
 
 render() {
   let data = this.generateDataForChart(this.props.data)
@@ -31,7 +41,18 @@ render() {
       <div>
        <div id="top-employees-chart" className="chart">
             <h5 id = "topEmpHeader">Top Employees</h5>
-                <ComposedChart
+           <select
+           id="employeesToRender"
+           onChange={this.handleInput}
+           className="selectInput">   
+            <option value = "">Top</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+         <ComposedChart
                     layout="vertical"
                     width={450}
                     height={250}

@@ -37,8 +37,7 @@ class Update extends Component {
       `http://localhost:5515/owner/${this.findCorrectID()}/${
         this.state.transfer
       }`)
-      document.getElementById("TRANSFER").innerHTML = "Done !"
-    this.setState({ updatedOwner: true });
+    this.setState({ updatedOwner: true , transfer : "", clientName : "" });
   };
 
   updateEmail = async () => {
@@ -47,14 +46,12 @@ class Update extends Component {
         this.state.sendEmail
       }`
     );
-    document.getElementById("SEND").innerHTML = "Done !"
-    this.setState({ updatedEmail: true });
+    this.setState({ updatedEmail: true, sendEmail : "", clientName : "" });
   };
 
   declareSale = async () => {
     await axios.put(`http://localhost:5515/declare/${this.findCorrectID()}`);
-    document.getElementById("DECLARE").innerHTML = "Done !"
-    this.setState({ updatedDeclaration: true });
+    this.setState({ updatedDeclaration: true , clientName : "" });
   };
 
   getOwners = () => {
@@ -105,7 +102,7 @@ class Update extends Component {
               <option value={o} key={i} />
             ))}
           </datalist>
-          <div className = "update-btn-text" onClick={this.updateOwner}>TRANSFER</div><span id = "TRANSFER"></span>
+          <div className = {this.state.updatedOwner? "done" : "update-btn-text"} onClick={this.updateOwner}>TRANSFER</div><span id = "TRANSFER"></span>
         </div>
         <div className="updateWrapper">
           Send Email
@@ -123,12 +120,12 @@ class Update extends Component {
             <option value="D">D</option>
             </datalist>
 
-          <div className = "update-btn-text" onClick={this.updateEmail}>SEND</div><span id = "SEND"></span>
+          <div className = {this.state.updatedEmail? "done" : "update-btn-text"} onClick={this.updateEmail}>SEND</div><span id = "SEND"></span>
         </div>
         <div className="updateWrapper">
           Declare sale!
           <div></div>
-          <div className = "update-btn-text" id= "declare" onClick={this.declareSale}>DECLARE</div><span id = "DECLARE"></span>
+          <div className = {this.state.updatedDeclaration? "done" : "update-btn-text"} id= "declare" onClick={this.declareSale}>DECLARE</div><span id = "DECLARE"></span>
         </div>
       </div>
     );
