@@ -4,10 +4,11 @@
     background-color: #F7CE3E;
     height: 3em;
     align-items: center;
-    margin-left: 1%;
     margin-right: 1%;
+    margin-bottom: 0.5%;
     font-weight: 700;
-    -webkit-box-shadow: -1px 1px 7px 4px rgba(70,117,120,1);
--moz-box-shadow: -1px 1px 7px 4px rgba(70,117,120,1);
-box-shadow: -1px 1px 7px 4px rgba(70,117,120,1);
-}
+    box-shadow: 0px 2px 0px 0px rgba(190,188,188,0.65);}
+
+    #nameHeader{
+        padding-left: 5%;
+    }

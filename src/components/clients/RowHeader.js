@@ -5,7 +5,7 @@ class RowHeader extends Component {
     render() {
         return (
                  <div id = "rowHeader" >
-              <span>Name</span>
+              <span id ="nameHeader">Name</span>
               <span>Surname</span>
               <span>Country</span>
               <span>First Contact</span>

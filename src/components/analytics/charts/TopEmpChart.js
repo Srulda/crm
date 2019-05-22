@@ -40,7 +40,7 @@ render() {
     return (
       <div>
        <div id="top-employees-chart" className="chart">
-            <h5 id = "topEmpHeader">Top Employees</h5>
+            <span id = "topEmpHeader">Top Employees:</span>
            <select
            id="employeesToRender"
            onChange={this.handleInput}
@@ -55,7 +55,7 @@ render() {
          <ComposedChart
                     layout="vertical"
                     width={450}
-                    height={250}
+                    height={220}
                     data={data}
                     margin={{
                         top: 20, right: 20, bottom: 20, left: 50,

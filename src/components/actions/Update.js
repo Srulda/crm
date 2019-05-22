@@ -9,10 +9,10 @@ class Update extends Component {
       clientName: "",
       transfer: "",
       sendEmail: "",
+      owner: "",
       updatedOwner: false,
       updatedEmail: false,
-      updatedDeclaration: false,
-      owner: "Janice Alvarado"
+      updatedDeclaration: false
     };
   }
 
@@ -33,26 +33,40 @@ class Update extends Component {
   };
 
   updateOwner = async () => {
-    await axios.put(
-      `http://localhost:5515/owner/${this.findCorrectID()}/${
-        this.state.transfer
-      }`)
-    this.setState({ updatedOwner: true , transfer : "", clientName : "" });
-  };
+    if(this.state.clientName){
+      await axios.put(
+        `http://localhost:5515/owner/${this.findCorrectID()}/${
+          this.state.transfer
+        }`)
+      this.setState({ updatedOwner: true , transfer : "", clientName : "" });
+    }else{
+      alert("Please Insert Client Name")
+    }
+    }
+    
 
   updateEmail = async () => {
+   if (this.state.clientName){
     await axios.put(
       `http://localhost:5515/email/${this.findCorrectID()}/${
         this.state.sendEmail
       }`
     );
     this.setState({ updatedEmail: true, sendEmail : "", clientName : "" });
-  };
+  }else{
+    alert("Please Insert Client Name")
+  }
+}
+  
 
   declareSale = async () => {
+    if (this.state.clientName){
     await axios.put(`http://localhost:5515/declare/${this.findCorrectID()}`);
     this.setState({ updatedDeclaration: true , clientName : "" });
-  };
+  }else{
+    alert("Please Insert Client Name")
+  }
+}
 
   getOwners = () => {
     let owners = new Set();
